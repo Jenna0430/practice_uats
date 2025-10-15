@@ -38,16 +38,47 @@ describe('Testing login page features', () => {
     
   })
 
-   it.only('verifyUserCanRegisterWithValidCredentials', () => {
+   it('verifyUserCanRegisterWithValidCredentials', () => {
     loginpage.enterUserName('Jenna')
     loginpage.enterUserNumber('013-8763457')
     loginpage.enterDate('2025-06-26')
     loginpage.selectPaymentMethod('card')
     ca.clickOnWebElement(loginpage.register_button)
-    cy.contains(/Thank you for validating your ticket/i)
-   
+    cy.contains(/Thank you for validating your ticket/i)  
 
   })
 
+    it('verifyUserCanNotRegisterWithInvalidCredentials', () => {
+
+    loginpage.enterUserName('Jenna')
+    loginpage.enterUserNumber('013-876345')
+    ca.clickOnWebElement(loginpage.register_button)
+    cy.contains(/Please provide your Contact number./i)
+
+    loginpage.enterUserNumber('013-8763457')
+    loginpage.enterDate('2025-06-26')
+    loginpage.selectPaymentMethod('usa')
+    ca.clickOnWebElement(loginpage.register_button)
+    cy.contains(/Please select the Paymeny Method./i)
+    
+    loginpage.enterDate('2025-26-26')
+    ca.clickOnWebElement(loginpage.register_button)
+    cy.contains(/Please provide valid Date./i)
+
+
+  })
+
+    it.only('verifyUserCannotRegisterWhenFields are empty', () => {
+    loginpage.enterUserName('')
+    loginpage.enterUserNumber('')
+    loginpage.enterDate('')
+    loginpage.selectPaymentMethod('')
+    ca.clickOnWebElement(loginpage.register_button)
+    cy.contains(/Please enter your Contact name./i)
+    cy.contains(/Please provide your Contact number./i) 
+    cy.contains(/Please provide valid Date./i)
+    cy.contains(/Please select the Paymeny Method./i) 
+
+  })
 
 })
