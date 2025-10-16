@@ -13,6 +13,17 @@ export class CommonActions {
     cy.get(webelement_identifier).select(value);
     }
 
+    verifyDropdownOptions(webelement_identifier, expectedOptions, value) {
+       cy.get(webelement_identifier).should('have.length', expectedOptions.length)
+       expectedOptions.forEach((option, index) => {
+        cy.get(webelement_identifier).eq(index).should('contain', option)
+       }) 
+    }
+
+    clickOnDropdownOption(webelement_identifier, optionText, value){
+         cy.get(webelement_identifier).contains(optionText).click();
+    }
+
     verifyWebElementExist(webelement_identifier) {
         cy.get(webelement_identifier).should('exist')
     }
