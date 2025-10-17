@@ -1,0 +1,20 @@
+{
+    "productData" : [
+        {
+            "productName": "Computer",
+            "productPrice" : "200000",
+            "productReference" : "x",
+            "productDescription" : "white",
+            "productAvailableQuan" : "7",
+            "productAttachment" : "/home/jenna/Downloads/computer.png"
+        },
+        {
+            "productName": "Handbag",
+            "productPrice" : "2",
+            "productReference" : "x",
+            "productDescription" : "gold",
+            "productAvailableQuan" : "a",
+            "productAttachment" : "/home/jenna/Downloads/Laptop-computer.webp"
+        }
+    ]
+}

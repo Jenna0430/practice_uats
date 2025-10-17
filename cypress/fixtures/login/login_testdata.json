@@ -10,4 +10,5 @@
     "passwordInputError" : "password is required",
     "loginSubmitError1" : "login failed please check credentails",
     "loginSubmitError2" : "The form is not valid. Please check for errors"
+   
 }

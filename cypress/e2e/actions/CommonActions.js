@@ -25,12 +25,18 @@ export class CommonActions {
         cy.get(webelement_identifier).eq(index).should('be.visible').click();
     }
 
+
     getSelectedDropdownValue(webelement_identifier) {
         cy.get(webelement_identifier).then(($element) => {
             const selectedValue = $element.text();
             cy.log(`Selected value: ${selectedValue}`);
             cy.wrap(selectedValue).as('selectedOption');
         });
+    }
+
+    
+    selectFileInputField(webelement_identifier, filepath){
+        cy.get(webelement_identifier).selectFile(filepath, { force: true });
     }
 
     verifyWebElementExist(webelement_identifier) {
