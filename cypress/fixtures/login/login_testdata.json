@@ -1,5 +1,13 @@
 {
-    "loginText":"Enter your username and password to login",
-    "userName":"Jenna",
-    "dropdownOptions":["English", "Français"]
+    "englishText":"Enter your username and password to login",
+    "dropdownOptions":["English", "Français"],
+    "frenchText": "Entrez votre nom d'utilisateur et votre mot de passe pour vous connecter",
+    "userName" : "QA_Jenna_Admin",
+    "password" : "Admin@12345",
+    "falseUsername" : "jenna",
+    "falsePassword" : "7290jdu90u",
+    "usernameInputError" : "username is required",
+    "passwordInputError" : "password is required",
+    "loginSubmitError1" : "login failed please check credentails",
+    "loginSubmitError2" : "The form is not valid. Please check for errors"
 }

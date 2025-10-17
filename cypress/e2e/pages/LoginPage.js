@@ -26,42 +26,46 @@ export class LoginPage {
     /* variables for MBP LOGIN PAGE */
 
     company_logo = 'div.auth_logo'
-    login_text = '.MuiTypography-root'
+  //  login_text = '.MuiTypography-root'
     username_input = 'input[name="username"]'
     password_input = 'input[name="password"]'
     language_dropdown_input = '.MuiSelect-select'
     language_dropdown_options = 'ul[role="listbox"] li[role="option"]'
-    english_option = ''
-    french_option = ''
+    selected_language = '.MuiSelect-select'
+    login_button = '[data-testid="Sign-In"]'
+    username_input_error = 'p[id=":r3:-helper-text"]'
+    password_input_error = 'p[id=":r5:-helper-text"]'
+    login_error = '.MuiSnackbarContent-message'
 
     // action methods
 
     enterUserName(value) {
-        ca.enterValueInField(this.name_input, value)
+        ca.enterValueInField(this.username_input, value)
     }
 
-    enterUserNumber(value){
-        ca.enterValueInField(this.number_input, value)
+    enterUserPassword(value){
+        ca.enterValueInField(this.password_input, value)
     }
 
     enterDate(value){
         ca.enterValueInField(this.date_input, value)
     }
 
+
     verifyLanguageDropdownOptions(optionsArray, value){
         ca.verifyDropdownOptions(this.language_dropdown_options, optionsArray)
 
     }
 
-    clickOnLanguageDropdown(value, optiontext){
-        ca.clickOnDropdownOption(this.language_dropdown_options, optiontext)
+   clickOnLanguageDropdown(index) {
+        ca.clickOnDropdownOption(this.language_dropdown_options, index);
     }
 
-    
-    selectLanguage(value){
-        ca.selectDropdownOption(this.language_dropdown_options, value)
-    }
+   getSelectedLanguage() {
+    ca.getSelectedDropdownValue(this.selected_language);
+   } 
 
+ 
 
 
 }

@@ -20,8 +20,17 @@ export class CommonActions {
        }) 
     }
 
-    clickOnDropdownOption(webelement_identifier, optionText, value){
-         cy.get(webelement_identifier).contains(optionText).click();
+    clickOnDropdownOption(webelement_identifier, index, value) {
+  
+        cy.get(webelement_identifier).eq(index).should('be.visible').click();
+    }
+
+    getSelectedDropdownValue(webelement_identifier) {
+        cy.get(webelement_identifier).then(($element) => {
+            const selectedValue = $element.text();
+            cy.log(`Selected value: ${selectedValue}`);
+            cy.wrap(selectedValue).as('selectedOption');
+        });
     }
 
     verifyWebElementExist(webelement_identifier) {
@@ -38,5 +47,13 @@ export class CommonActions {
 
      verifyWebElementIsNotVisible(webelement_identifier){
         cy.get(webelement_identifier).should('not.be.visible')
+    }
+
+    clearFieldData(webelement_identifier) {
+        cy.get(webelement_identifier).clear()
+    }
+
+    verifyWebelementContainsText(webelement_identifier, textdata) {
+        cy.get(webelement_identifier).should('contain', textdata)
     }
 }
